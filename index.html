@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>یک سؤال مهم 😄</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe0e0, #fff5d6);
+      font-family: Tahoma, sans-serif;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      background: white;
+      padding: 35px 20px;
+      border-radius: 25px;
+      box-shadow: 0 10px 40px #0002;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 25px;
+      line-height: 2;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      min-height: 180px;
+    }
+
+    button {
+      border: none;
+      border-radius: 15px;
+      padding: 18px 35px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    #yes {
+      background: #20c76a;
+      color: white;
+    }
+
+    #no {
+      background: #e74c3c;
+      color: white;
+    }
+
+    #message {
+      display: none;
+      font-size: 30px;
+      font-weight: bold;
+      color: #20a957;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div id="question">
+      <h1>
+        سجاد صحراگرد، پدر علیرضا،<br>
+        تو علیرضا رو فردا شب می‌بری طاق‌بستان<br>
+        جوجه استخوانی بدی؟ 😁
+      </h1>
+
+      <div class="buttons">
+        <button id="no">خیر</button>
+        <button id="yes">بله</button>
+      </div>
+    </div>
+
+    <div id="message">
+      مبارکه! 😂❤️
+    </div>
+  </div>
+
+  <script>
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    const question = document.getElementById("question");
+    const message = document.getElementById("message");
+
+    let yesSize = 1;
+    let noSize = 1;
+
+    no.addEventListener("click", () => {
+      yesSize += 0.35;
+      noSize *= 0.72;
+
+      yes.style.transform = `scale(${yesSize})`;
+      no.style.transform = `scale(${noSize})`;
+
+      if (noSize < 0.08) {
+        no.style.display = "none";
+      }
+    });
+
+    yes.addEventListener("click", () => {
+      question.style.display = "none";
+      message.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
